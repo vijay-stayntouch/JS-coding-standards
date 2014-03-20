@@ -1,7 +1,6 @@
+# Javascript Coding Standard
 
-# Javascript Coding Standard() {
-
-*A mostly reasonable approach to JavaScript*
+*A mostly reasonable approach to JavaScript whilst working at StayNTouch*
 
 ## Index
 
@@ -599,5 +598,3 @@
     ```
 
 **[⬆ back to top](#index)**
-
-# };
