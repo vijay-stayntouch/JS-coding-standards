@@ -1,5 +1,4 @@
 
-
 # Javascript Coding Standard() {
 
 *A mostly reasonable approach to JavaScript*
@@ -599,4 +598,6 @@
     };
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#index)**
+
+# };
