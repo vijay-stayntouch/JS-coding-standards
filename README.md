@@ -597,4 +597,4 @@
     };
     ```
 
-**[⬆ back to top](#index)**
+**[back to top](#index)**
