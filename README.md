@@ -12,6 +12,11 @@
 1. [Functions](#functions)
 1. [Properties](#properties)
 1. [Variables](#variables)
+1. [Conditional Expressions & Equality](#conditional-expressions-&-equality)
+1. [Blocks](#blocks)
+1. [Comments](#comments)
+1. [Whitespace](#whitespace)
+1. [Naming Conventions](#naming-conventions)
 
 
 ## Objects
@@ -373,4 +378,225 @@
     }
   ```
 
-**[⬆ back to top](#index)**
+**[back to top](#index)**
+
+
+## Whitespace
+
+  - Use hard tabs set to 4 spaces as with soft tabs set to 2 spaces the code looks cluttery
+
+    ```javascript
+    // bad
+    function() {
+    ∙var name;
+    }
+
+    // bad
+    function() {
+    ∙∙var name;
+    }
+
+    // good
+    function() {
+    ∙∙∙∙var name;
+    }
+    ```
+
+  - Place 1 space before the leading brace.
+
+    ```javascript
+    // bad
+    function test(){
+      console.log('test');
+    }
+
+    // good
+    function test() {
+      console.log('test');
+    }
+
+    // bad
+    dog.set('attr',{
+      age: '1 year',
+      breed: 'Bernese Mountain Dog'
+    });
+
+    // good
+    dog.set('attr', {
+      age: '1 year',
+      breed: 'Bernese Mountain Dog'
+    });
+    ```
+
+  - Set off operators with spaces.
+
+    ```javascript
+    // bad
+    var x=y+5;
+
+    // good
+    var x = y + 5;
+    ```
+
+  - Place an empty newline at the end of the file.
+
+    ```javascript
+    // bad
+    (function(global) {
+      // ...stuff...
+    })(this);
+    ```
+
+    ```javascript
+    // good
+    (function(global) {
+      // ...stuff...
+    })(this);
+
+    ```
+
+  - Use indentation when making long method chains.
+
+    ```javascript
+    // bad
+    $('#items').find('.selected').highlight().end().find('.open').updateCount();
+
+    // good
+    $('#items')
+      .find('.selected')
+        .highlight()
+        .end()
+      .find('.open')
+        .updateCount();
+
+    // bad
+    var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
+        .attr('width',  (radius + margin) * 2).append('svg:g')
+        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+        .call(tron.led);
+
+    // good
+    var leds = stage.selectAll('.led')
+        .data(data)
+      .enter().append('svg:svg')
+        .class('led', true)
+        .attr('width',  (radius + margin) * 2)
+      .append('svg:g')
+        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+        .call(tron.led);
+    ```
+
+**[back to top](#index)**
+
+
+## Naming Conventions
+
+  - Avoid single letter names. Be descriptive with your naming.
+
+    ```javascript
+    // bad
+    function q() {
+      // ...stuff...
+    }
+
+    // good
+    function query() {
+      // ..stuff..
+    }
+    ```
+
+  - Use camelCase when naming objects, functions, and instances
+
+    ```javascript
+    // bad
+    var OBJEcttsssss = {};
+    var this_is_my_object = {};
+    function c() {};
+    var u = new user({
+      name: 'Bob Parr'
+    });
+
+    // good
+    var thisIsMyObject = {};
+    function thisIsMyFunction() {};
+    var user = new User({
+      name: 'Bob Parr'
+    });
+    ```
+
+  - Use PascalCase when naming constructors, classes
+
+    ```javascript
+    // bad
+    function user(options) {
+      this.name = options.name;
+    }
+
+    var bad = new user({
+      name: 'nope'
+    });
+
+    // good
+    function User(options) {
+      this.name = options.name;
+    }
+
+    var good = new User({
+      name: 'yup'
+    });
+    ```
+
+  - Use a leading underscore `_` when naming private properties
+
+    ```javascript
+    // bad
+    this.__firstName__ = 'Panda';
+    this.firstName_ = 'Panda';
+
+    // good
+    this._firstName = 'Panda';
+    ```
+
+  - When saving a reference to `this` use `_this`. Better if you can use javascript bind() method to supply `this`. For more powerful bind use UnderscoreJS [_.bind()](http://underscorejs.org/#bind)
+
+    ```javascript
+    // bad
+    function() {
+      var self = this;
+      return function() {
+        console.log(self);
+      };
+    }
+
+    // bad
+    function() {
+      var that = this;
+      return function() {
+        console.log(that);
+      };
+    }
+
+    // good
+    function() {
+      var _this = this;
+      return function() {
+        console.log(_this);
+      };
+    }
+    ```
+
+  - Name your functions. This is helpful for stack traces.
+
+    ```javascript
+    // bad
+    var log = function(msg) {
+      console.log(msg);
+    };
+
+    // good
+    var log = function log(msg) {
+      console.log(msg);
+    };
+    ```
+
+**[⬆ back to top](#table-of-contents)**
